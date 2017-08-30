@@ -32,8 +32,9 @@ execute pathogen#infect()
 let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': [], 'passive_filetypes': []}
 nnoremap <C-w>e :SyntasticCheck<CR> 
 
-" For IDL, Better Syntax highlighting
-autocmd BufEnter *.pro set syntax=idlang filetype=idlang
+" IDL Syntax Highlight and Block Comment (using vim-commentary: gcc and gc)
+au BufEnter *.pro set syntax=idlang filetype=idlang
+au FileType idlang setlocal commentstring=;\ %s
 
 " <ESC> with jj 
 imap jj <ESC>
