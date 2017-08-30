@@ -1,7 +1,12 @@
 #!/bin/sh
 set -e
 
+if [ -f "~/.vim" ]; then
+  mv ~/.vim ~/.vim_old
+fi
+
 cd ~/.vim_runtime
+
 
 echo 'set runtimepath+=~/.vim_runtime
 
@@ -14,5 +19,8 @@ try
 source ~/.vim_runtime/my_configs.vim
 catch
 endtry' > ~/.vimrc
+
+mkdir -p ~/.vim
+cp -r ~/.vim_runtime/my_plugins/* ~/.vim
 
 echo "Installed the Ultimate Vim configuration successfully! Enjoy :-)"
