@@ -95,6 +95,7 @@
 'g:syntastic_html_w3_exec'	syntastic-checkers.txt	/*'g:syntastic_html_w3_exec'*
 'g:syntastic_java_checkstyle_classpath'	syntastic-checkers.txt	/*'g:syntastic_java_checkstyle_classpath'*
 'g:syntastic_java_checkstyle_conf_file'	syntastic-checkers.txt	/*'g:syntastic_java_checkstyle_conf_file'*
+'g:syntastic_java_checkstyle_exec'	syntastic-checkers.txt	/*'g:syntastic_java_checkstyle_exec'*
 'g:syntastic_java_javac_autoload_maven_classpath'	syntastic-checkers.txt	/*'g:syntastic_java_javac_autoload_maven_classpath'*
 'g:syntastic_java_javac_classpath'	syntastic-checkers.txt	/*'g:syntastic_java_javac_classpath'*
 'g:syntastic_java_javac_config_file'	syntastic-checkers.txt	/*'g:syntastic_java_javac_config_file'*
@@ -130,6 +131,7 @@
 'g:syntastic_ocaml_use_ocamlbuild'	syntastic-checkers.txt	/*'g:syntastic_ocaml_use_ocamlbuild'*
 'g:syntastic_ocaml_use_ocamlc'	syntastic-checkers.txt	/*'g:syntastic_ocaml_use_ocamlc'*
 'g:syntastic_pc_lint_config_file'	syntastic-checkers.txt	/*'g:syntastic_pc_lint_config_file'*
+'g:syntastic_perl6_lib_path'	syntastic-checkers.txt	/*'g:syntastic_perl6_lib_path'*
 'g:syntastic_perl_interpreter'	syntastic-checkers.txt	/*'g:syntastic_perl_interpreter'*
 'g:syntastic_perl_lib_path'	syntastic-checkers.txt	/*'g:syntastic_perl_lib_path'*
 'g:syntastic_perl_perlcritic_thres'	syntastic-checkers.txt	/*'g:syntastic_perl_perlcritic_thres'*
@@ -142,6 +144,7 @@
 'g:syntastic_ruby_flog_threshold_error'	syntastic-checkers.txt	/*'g:syntastic_ruby_flog_threshold_error'*
 'g:syntastic_ruby_flog_threshold_warning'	syntastic-checkers.txt	/*'g:syntastic_ruby_flog_threshold_warning'*
 'g:syntastic_scala_scalastyle_config_file'	syntastic-checkers.txt	/*'g:syntastic_scala_scalastyle_config_file'*
+'g:syntastic_scala_scalastyle_exec'	syntastic-checkers.txt	/*'g:syntastic_scala_scalastyle_exec'*
 'g:syntastic_scala_scalastyle_jar'	syntastic-checkers.txt	/*'g:syntastic_scala_scalastyle_jar'*
 'g:syntastic_sparse_config_file'	syntastic-checkers.txt	/*'g:syntastic_sparse_config_file'*
 'g:syntastic_splint_config_file'	syntastic-checkers.txt	/*'g:syntastic_splint_config_file'*
@@ -299,6 +302,7 @@ syntastic-checkers-objc	syntastic-checkers.txt	/*syntastic-checkers-objc*
 syntastic-checkers-objcpp	syntastic-checkers.txt	/*syntastic-checkers-objcpp*
 syntastic-checkers-ocaml	syntastic-checkers.txt	/*syntastic-checkers-ocaml*
 syntastic-checkers-perl	syntastic-checkers.txt	/*syntastic-checkers-perl*
+syntastic-checkers-perl6	syntastic-checkers.txt	/*syntastic-checkers-perl6*
 syntastic-checkers-php	syntastic-checkers.txt	/*syntastic-checkers-php*
 syntastic-checkers-po	syntastic-checkers.txt	/*syntastic-checkers-po*
 syntastic-checkers-pod	syntastic-checkers.txt	/*syntastic-checkers-pod*
@@ -334,6 +338,7 @@ syntastic-checkers-vala	syntastic-checkers.txt	/*syntastic-checkers-vala*
 syntastic-checkers-verilog	syntastic-checkers.txt	/*syntastic-checkers-verilog*
 syntastic-checkers-vhdl	syntastic-checkers.txt	/*syntastic-checkers-vhdl*
 syntastic-checkers-vim	syntastic-checkers.txt	/*syntastic-checkers-vim*
+syntastic-checkers-vue	syntastic-checkers.txt	/*syntastic-checkers-vue*
 syntastic-checkers-xhtml	syntastic-checkers.txt	/*syntastic-checkers-xhtml*
 syntastic-checkers-xml	syntastic-checkers.txt	/*syntastic-checkers-xml*
 syntastic-checkers-xquery	syntastic-checkers.txt	/*syntastic-checkers-xquery*
@@ -491,6 +496,7 @@ syntastic-ocaml-camlp4o	syntastic-checkers.txt	/*syntastic-ocaml-camlp4o*
 syntastic-perl-perl	syntastic-checkers.txt	/*syntastic-perl-perl*
 syntastic-perl-perlcritic	syntastic-checkers.txt	/*syntastic-perl-perlcritic*
 syntastic-perl-podchecker	syntastic-checkers.txt	/*syntastic-perl-podchecker*
+syntastic-perl6-perl6	syntastic-checkers.txt	/*syntastic-perl6-perl6*
 syntastic-php-php	syntastic-checkers.txt	/*syntastic-php-php*
 syntastic-php-phpcs	syntastic-checkers.txt	/*syntastic-php-phpcs*
 syntastic-php-phplint	syntastic-checkers.txt	/*syntastic-php-phplint*
@@ -564,6 +570,7 @@ syntastic-solidity-solc	syntastic-checkers.txt	/*syntastic-solidity-solc*
 syntastic-solidity-solium	syntastic-checkers.txt	/*syntastic-solidity-solium*
 syntastic-spec-rpmlint	syntastic-checkers.txt	/*syntastic-spec-rpmlint*
 syntastic-sql-sqlint	syntastic-checkers.txt	/*syntastic-sql-sqlint*
+syntastic-sql-tsqllint	syntastic-checkers.txt	/*syntastic-sql-tsqllint*
 syntastic-statusline-flag	syntastic.txt	/*syntastic-statusline-flag*
 syntastic-stylus-stylint	syntastic-checkers.txt	/*syntastic-stylus-stylint*
 syntastic-tcl-nagelfar	syntastic-checkers.txt	/*syntastic-tcl-nagelfar*
@@ -593,6 +600,8 @@ syntastic-vim-go	syntastic.txt	/*syntastic-vim-go*
 syntastic-vim-vimlint	syntastic-checkers.txt	/*syntastic-vim-vimlint*
 syntastic-vim-vint	syntastic-checkers.txt	/*syntastic-vim-vint*
 syntastic-vim-virtualenv	syntastic.txt	/*syntastic-vim-virtualenv*
+syntastic-vue-eslint	syntastic-checkers.txt	/*syntastic-vue-eslint*
+syntastic-vue-pug_lint_vue	syntastic-checkers.txt	/*syntastic-vue-pug_lint_vue*
 syntastic-xhtml-jshint	syntastic-checkers.txt	/*syntastic-xhtml-jshint*
 syntastic-xhtml-proselint	syntastic-checkers.txt	/*syntastic-xhtml-proselint*
 syntastic-xhtml-tidy	syntastic-checkers.txt	/*syntastic-xhtml-tidy*

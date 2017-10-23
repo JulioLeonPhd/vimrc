@@ -53,6 +53,7 @@ vim-pug https://github.com/digitaltoad/vim-pug
 vim-yankstack https://github.com/maxbrunsfeld/vim-yankstack
 lightline.vim https://github.com/itchyny/lightline.vim
 tpope-vim-abolish https://github.com/tpope/tpope-vim-abolish
+vim-matlab https://github.com/lazywei/vim-matlab
 mru.vim https://github.com/vim-scripts/mru.vim
 """.strip()
 

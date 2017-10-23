@@ -109,8 +109,9 @@ OPTIONS						*lightline-option*
 		    \ 'spell': '%{&spell?&spelllang:""}',
 		    \ 'lineinfo': '%3l:%-2v',
 		    \ 'line': '%l',
-		    \ 'column': '%c'
-		    \ 'close': '%999X X ' }
+		    \ 'column': '%c',
+		    \ 'close': '%999X X ',
+		    \ 'winnr': '%{winnr()}' }
 <
 	g:lightline.component_visible_condition
 						*g:lightline.component_visible_condition*
@@ -228,7 +229,7 @@ OPTIONS						*lightline-option*
 		Currently, wombat, solarized, powerline, jellybeans, Tomorrow,
 		Tomorrow_Night, Tomorrow_Night_Blue, Tomorrow_Night_Eighties,
 		PaperColor, seoul256, landscape, one, Dracula, darcula,
-		Molokai and 16color are available.
+		Molokai, materia, OldHope and 16color are available.
 		The default value is:
 >
 		let g:lightline.colorscheme = 'default'
