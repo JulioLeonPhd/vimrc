@@ -3,9 +3,11 @@
 This is a fork of amix/vimrc for personal use that includes custom configurations, monokai palette and custom plugins. For the original version, visit
 [amix/vimrc](https://github.com/amix/vimrc/).
 
+Text below is a copy/paste from [amix/vimrc](https://github.com/amix/vimrc/), with modifications on the installation instructions for easier copy/pasting and cloning.
+
+---
 
 ![VIM](https://dnp4pehkvoo6n.cloudfront.net/43c5af597bd5c1a64eb1829f011c208f/as/Ultimate%20Vimrc.svg)
-
 
 # The Ultimate vimrc
 
