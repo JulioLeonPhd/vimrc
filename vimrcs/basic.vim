@@ -56,8 +56,8 @@ set autoread
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 " <Comment if you want leader = \, vim's default>
-" let mapleader = ","
-" let g:mapleader = ","
+let mapleader = ","
+let g:mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -71,7 +71,7 @@ command W w !sudo tee % > /dev/null
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the cursor - when moving vertically using j/k
-set so=0   " Changed to 0 so zt and zb work as intended.
+set so=7
 
 " Avoid garbled characters in Chinese language windows OS
 let $LANG='en' 
