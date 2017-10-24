@@ -71,7 +71,7 @@ command W w !sudo tee % > /dev/null
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the cursor - when moving vertically using j/k
-set so = 0   " Changed to 0 so zt and zb work as intended.
+set so=0   " Changed to 0 so zt and zb work as intended.
 
 " Avoid garbled characters in Chinese language windows OS
 let $LANG='en' 
