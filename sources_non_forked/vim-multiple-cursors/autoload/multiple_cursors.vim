@@ -103,7 +103,7 @@ endfunction
 
 function! s:fire_pre_triggers()
   if !s:before_function_called
-    doautocmd User MultipleCursorsPre
+    silent doautocmd User MultipleCursorsPre
     if exists('*Multiple_cursors_before')
       exe "call Multiple_cursors_before()"
     endif
@@ -445,7 +445,7 @@ function! s:CursorManager.reset(restore_view, restore_setting, ...) dict
     if exists('*Multiple_cursors_after')
       exe "call Multiple_cursors_after()"
     endif
-    doautocmd User MultipleCursorsPost
+    silent doautocmd User MultipleCursorsPost
     let s:before_function_called = 0
   endif
 endfunction
@@ -516,7 +516,6 @@ function! s:CursorManager.update_current() dict
     if s:to_mode ==# 'V'
       exec "normal! gvv\<Esc>"
     endif
-
     " Sets the cursor at the right place
     exec "normal! gv\<Esc>"
     call cur.update_visual_selection(s:get_visual_region(s:pos('.')))
@@ -525,17 +524,18 @@ function! s:CursorManager.update_current() dict
     " This should be executed after user input is processed, when unnamed
     " register already contains the text.
     call cur.save_unnamed_register()
-
     call cur.remove_visual_selection()
-  elseif s:from_mode ==# 'i' && s:to_mode ==# 'n' && self.current_index != self.size() - 1
+  elseif s:from_mode ==# 'i' && s:to_mode ==# 'n' && self.current_index != 0
     normal! h
   elseif s:from_mode ==# 'n'
     " Save contents of unnamed register after each operation in Normal mode.
     call cur.save_unnamed_register()
   endif
-  let vdelta = line('$') - s:saved_linecount
+  let pos = s:pos('.')
+
   " If the total number of lines changed in the buffer, we need to potentially
   " adjust other cursor locations
+  let vdelta = line('$') - s:saved_linecount
   if vdelta != 0
     if self.current_index != self.size() - 1
       let cur_column_offset = (cur.column() - col('.')) * -1
@@ -547,7 +547,7 @@ function! s:CursorManager.update_current() dict
         let c = self.get(i)
         " If there're other cursors on the same line, we need to adjust their
         " columns. This needs to happen before we adjust their line!
-        if cur.line() == c.line()
+        if cur.line() == c.line() || cur.position == pos
           if vdelta > 0
             " Added a line
             let hdelta = cur_column_offset
@@ -583,7 +583,6 @@ function! s:CursorManager.update_current() dict
     endif
   endif
 
-  let pos = s:pos('.')
   if cur.position == pos
     return 0
   endif
@@ -598,7 +597,8 @@ endfunction
 
 " Start tracking cursor updates
 function! s:CursorManager.start_loop() dict
-  let self.starting_index = self.current_index
+  let self.current_index  = 0
+  let self.starting_index = 0
 endfunction
 
 " Returns true if we're cycled through all the cursors

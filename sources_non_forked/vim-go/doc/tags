@@ -14,6 +14,7 @@
 'g:go_doc_command'	vim-go.txt	/*'g:go_doc_command'*
 'g:go_doc_height'	vim-go.txt	/*'g:go_doc_height'*
 'g:go_doc_keywordprg_enabled'	vim-go.txt	/*'g:go_doc_keywordprg_enabled'*
+'g:go_doc_url'	vim-go.txt	/*'g:go_doc_url'*
 'g:go_echo_command_info'	vim-go.txt	/*'g:go_echo_command_info'*
 'g:go_echo_go_info'	vim-go.txt	/*'g:go_echo_go_info'*
 'g:go_fmt_autosave'	vim-go.txt	/*'g:go_fmt_autosave'*
@@ -35,9 +36,10 @@
 'g:go_highlight_extra_types'	vim-go.txt	/*'g:go_highlight_extra_types'*
 'g:go_highlight_fields'	vim-go.txt	/*'g:go_highlight_fields'*
 'g:go_highlight_format_strings'	vim-go.txt	/*'g:go_highlight_format_strings'*
+'g:go_highlight_function_arguments'	vim-go.txt	/*'g:go_highlight_function_arguments'*
+'g:go_highlight_function_calls'	vim-go.txt	/*'g:go_highlight_function_calls'*
 'g:go_highlight_functions'	vim-go.txt	/*'g:go_highlight_functions'*
 'g:go_highlight_generate_tags'	vim-go.txt	/*'g:go_highlight_generate_tags'*
-'g:go_highlight_methods'	vim-go.txt	/*'g:go_highlight_methods'*
 'g:go_highlight_operators'	vim-go.txt	/*'g:go_highlight_operators'*
 'g:go_highlight_space_tab_error'	vim-go.txt	/*'g:go_highlight_space_tab_error'*
 'g:go_highlight_string_spellcheck'	vim-go.txt	/*'g:go_highlight_string_spellcheck'*
@@ -55,8 +57,8 @@
 'g:go_metalinter_autosave_enabled'	vim-go.txt	/*'g:go_metalinter_autosave_enabled'*
 'g:go_metalinter_command'	vim-go.txt	/*'g:go_metalinter_command'*
 'g:go_metalinter_deadline'	vim-go.txt	/*'g:go_metalinter_deadline'*
+'g:go_metalinter_disabled'	vim-go.txt	/*'g:go_metalinter_disabled'*
 'g:go_metalinter_enabled'	vim-go.txt	/*'g:go_metalinter_enabled'*
-'g:go_metalinter_excludes'	vim-go.txt	/*'g:go_metalinter_excludes'*
 'g:go_play_browser_command'	vim-go.txt	/*'g:go_play_browser_command'*
 'g:go_play_open_browser'	vim-go.txt	/*'g:go_play_open_browser'*
 'g:go_snippet_engine'	vim-go.txt	/*'g:go_snippet_engine'*
@@ -69,6 +71,7 @@
 'g:go_term_height'	vim-go.txt	/*'g:go_term_height'*
 'g:go_term_mode'	vim-go.txt	/*'g:go_term_mode'*
 'g:go_term_width'	vim-go.txt	/*'g:go_term_width'*
+'g:go_test_show_name'	vim-go.txt	/*'g:go_test_show_name'*
 'g:go_test_timeout'	vim-go.txt	/*'g:go_test_timeout'*
 'g:go_textobj_enabled'	vim-go.txt	/*'g:go_textobj_enabled'*
 'g:go_textobj_include_function_doc'	vim-go.txt	/*'g:go_textobj_include_function_doc'*
@@ -182,6 +185,7 @@
 :GoUpdateBinaries	vim-go.txt	/*:GoUpdateBinaries*
 :GoVet	vim-go.txt	/*:GoVet*
 :GoWhicherrs	vim-go.txt	/*:GoWhicherrs*
+denite-decls	vim-go.txt	/*denite-decls*
 ft-go-syntax	vim-go.txt	/*ft-go-syntax*
 ft-gohtmltmpl-syntax	vim-go.txt	/*ft-gohtmltmpl-syntax*
 ft-gotexttmpl-syntax	vim-go.txt	/*ft-gotexttmpl-syntax*

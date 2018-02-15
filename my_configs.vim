@@ -19,7 +19,7 @@ nnoremap <leader><C-space> za
 
 " NerdTree Configs
 let g:nerdtree_tabs_open_on_gui_startup = 1
-let g:nerdtree_tabs_open_on_console_startup = 1
+let g:nerdtree_tabs_open_on_console_startup = 0
 let g:nerdtree_tabs_smart_startup_focus = 2
 
 " Remove search highlight with leader + space
@@ -40,7 +40,7 @@ au FileType idlang setlocal commentstring=;\ %s
 imap jj <ESC>
 
 " Font Selection Override
-set gfn=Hack\ 9
+set gfn=Hack\ 8
 " set gfn=Hack\ Bold\ 8
 " set gfn=DejaVu\ Sans\ Mono\ Bold\ 9
 
@@ -50,5 +50,12 @@ vnoremap <leader>s "hy:%s/<C-r>h//gc<left><left><left>
 
 " Column Line at 80
 " set cc=80
+let g:vim_markdown_math = 1
+
+" vim-pandoc and vim-pandoc-syntax configuration
+let g:pandoc#spell#enabled = 1
+let g:pandoc#syntax#conceal#use = 1
+let g:pandoc#spell#default_langs = ["pt", "en"]
+" let g:pandoc#syntax#conceal#blacklist = ['atx']
 
 

@@ -346,6 +346,7 @@ syntastic-checkers-xslt	syntastic-checkers.txt	/*syntastic-checkers-xslt*
 syntastic-checkers-yacc	syntastic-checkers.txt	/*syntastic-checkers-yacc*
 syntastic-checkers-yaml	syntastic-checkers.txt	/*syntastic-checkers-yaml*
 syntastic-checkers-yang	syntastic-checkers.txt	/*syntastic-checkers-yang*
+syntastic-checkers-yara	syntastic-checkers.txt	/*syntastic-checkers-yara*
 syntastic-checkers-z80	syntastic-checkers.txt	/*syntastic-checkers-z80*
 syntastic-checkers-zpt	syntastic-checkers.txt	/*syntastic-checkers-zpt*
 syntastic-checkers-zsh	syntastic-checkers.txt	/*syntastic-checkers-zsh*
@@ -444,6 +445,7 @@ syntastic-html-gjslint	syntastic-checkers.txt	/*syntastic-html-gjslint*
 syntastic-html-htmlhint	syntastic-checkers.txt	/*syntastic-html-htmlhint*
 syntastic-html-jshint	syntastic-checkers.txt	/*syntastic-html-jshint*
 syntastic-html-proselint	syntastic-checkers.txt	/*syntastic-html-proselint*
+syntastic-html-stylelint	syntastic-checkers.txt	/*syntastic-html-stylelint*
 syntastic-html-textlint	syntastic-checkers.txt	/*syntastic-html-textlint*
 syntastic-html-tidy	syntastic-checkers.txt	/*syntastic-html-tidy*
 syntastic-html-validator	syntastic-checkers.txt	/*syntastic-html-validator*
@@ -468,6 +470,7 @@ syntastic-json-jsonval	syntastic-checkers.txt	/*syntastic-json-jsonval*
 syntastic-julia-lint	syntastic-checkers.txt	/*syntastic-julia-lint*
 syntastic-less-lessc	syntastic-checkers.txt	/*syntastic-less-lessc*
 syntastic-less-recess	syntastic-checkers.txt	/*syntastic-less-recess*
+syntastic-less-stylelint	syntastic-checkers.txt	/*syntastic-less-stylelint*
 syntastic-lex-flex	syntastic-checkers.txt	/*syntastic-lex-flex*
 syntastic-license	syntastic.txt	/*syntastic-license*
 syntastic-limbo-limbo	syntastic-checkers.txt	/*syntastic-limbo-limbo*
@@ -567,6 +570,7 @@ syntastic-slim-slim_lint	syntastic-checkers.txt	/*syntastic-slim-slim_lint*
 syntastic-slim-slimrb	syntastic-checkers.txt	/*syntastic-slim-slimrb*
 syntastic-sml-smlnj	syntastic-checkers.txt	/*syntastic-sml-smlnj*
 syntastic-solidity-solc	syntastic-checkers.txt	/*syntastic-solidity-solc*
+syntastic-solidity-solhint	syntastic-checkers.txt	/*syntastic-solidity-solhint*
 syntastic-solidity-solium	syntastic-checkers.txt	/*syntastic-solidity-solium*
 syntastic-spec-rpmlint	syntastic-checkers.txt	/*syntastic-spec-rpmlint*
 syntastic-sql-sqlint	syntastic-checkers.txt	/*syntastic-sql-sqlint*
@@ -614,6 +618,7 @@ syntastic-yaml-jsyaml	syntastic-checkers.txt	/*syntastic-yaml-jsyaml*
 syntastic-yaml-yamllint	syntastic-checkers.txt	/*syntastic-yaml-yamllint*
 syntastic-yaml-yamlxs	syntastic-checkers.txt	/*syntastic-yaml-yamlxs*
 syntastic-yang-pyang	syntastic-checkers.txt	/*syntastic-yang-pyang*
+syntastic-yara-yarac	syntastic-checkers.txt	/*syntastic-yara-yarac*
 syntastic-ycm	syntastic.txt	/*syntastic-ycm*
 syntastic-z80-z80syntaxchecker	syntastic-checkers.txt	/*syntastic-z80-z80syntaxchecker*
 syntastic-zpt-zptlint	syntastic-checkers.txt	/*syntastic-zpt-zptlint*

@@ -1,5 +1,6 @@
 " File:       monokai.vim
 " Maintainer: Crusoe Xia (crusoexia)
+" Edits:      Julio Leon
 " URL:        https://github.com/crusoexia/vim-monokai
 " License:    MIT
 "
@@ -10,7 +11,7 @@
 " --------------
 
 if !has("gui_running") && &t_Co < 256
-  finish
+    finish
 endif
 
 if ! exists("g:monokai_gui_italic")
@@ -27,43 +28,43 @@ set background=dark
 hi clear
 
 if exists("syntax_on")
-  syntax reset
+    syntax reset
 endif
 
 let colors_name = "monokai"
 
 function! s:h(group, style)
-  let s:ctermformat = "NONE"
-  let s:guiformat = "NONE"
-  if has_key(a:style, "format")
-    let s:ctermformat = a:style.format
-    let s:guiformat = a:style.format
-  endif
-  if g:monokai_term_italic == 0
-    let s:ctermformat = substitute(s:ctermformat, ",italic", "", "")
-    let s:ctermformat = substitute(s:ctermformat, "italic,", "", "")
-    let s:ctermformat = substitute(s:ctermformat, "italic", "", "")
-  endif
-  if g:monokai_gui_italic == 0
-    let s:guiformat = substitute(s:guiformat, ",italic", "", "")
-    let s:guiformat = substitute(s:guiformat, "italic,", "", "")
-    let s:guiformat = substitute(s:guiformat, "italic", "", "")
-  endif
-  if g:monokai_termcolors == 16
-    let l:ctermfg = (has_key(a:style, "fg") ? a:style.fg.cterm16 : "NONE")
-    let l:ctermbg = (has_key(a:style, "bg") ? a:style.bg.cterm16 : "NONE")
-  else
-    let l:ctermfg = (has_key(a:style, "fg") ? a:style.fg.cterm : "NONE")
-    let l:ctermbg = (has_key(a:style, "bg") ? a:style.bg.cterm : "NONE")
-  end
-  execute "highlight" a:group
-    \ "guifg="   (has_key(a:style, "fg")      ? a:style.fg.gui   : "NONE")
-    \ "guibg="   (has_key(a:style, "bg")      ? a:style.bg.gui   : "NONE")
-    \ "guisp="   (has_key(a:style, "sp")      ? a:style.sp.gui   : "NONE")
-    \ "gui="     (!empty(s:guiformat) ? s:guiformat   : "NONE")
-    \ "ctermfg=" . l:ctermfg
-    \ "ctermbg=" . l:ctermbg
-    \ "cterm="   (!empty(s:ctermformat) ? s:ctermformat   : "NONE")
+    let s:ctermformat = "NONE"
+    let s:guiformat = "NONE"
+    if has_key(a:style, "format")
+        let s:ctermformat = a:style.format
+        let s:guiformat = a:style.format
+    endif
+    if g:monokai_term_italic == 0
+        let s:ctermformat = substitute(s:ctermformat, ",italic", "", "")
+        let s:ctermformat = substitute(s:ctermformat, "italic,", "", "")
+        let s:ctermformat = substitute(s:ctermformat, "italic", "", "")
+    endif
+    if g:monokai_gui_italic == 0
+        let s:guiformat = substitute(s:guiformat, ",italic", "", "")
+        let s:guiformat = substitute(s:guiformat, "italic,", "", "")
+        let s:guiformat = substitute(s:guiformat, "italic", "", "")
+    endif
+    if g:monokai_termcolors == 16
+        let l:ctermfg = (has_key(a:style, "fg") ? a:style.fg.cterm16 : "NONE")
+        let l:ctermbg = (has_key(a:style, "bg") ? a:style.bg.cterm16 : "NONE")
+    else
+        let l:ctermfg = (has_key(a:style, "fg") ? a:style.fg.cterm : "NONE")
+        let l:ctermbg = (has_key(a:style, "bg") ? a:style.bg.cterm : "NONE")
+    end
+    execute "highlight" a:group
+                \ "guifg="   (has_key(a:style, "fg")      ? a:style.fg.gui   : "NONE")
+                \ "guibg="   (has_key(a:style, "bg")      ? a:style.bg.gui   : "NONE")
+                \ "guisp="   (has_key(a:style, "sp")      ? a:style.sp.gui   : "NONE")
+                \ "gui="     (!empty(s:guiformat) ? s:guiformat   : "NONE")
+                \ "ctermfg=" . l:ctermfg
+                \ "ctermbg=" . l:ctermbg
+                \ "cterm="   (!empty(s:ctermformat) ? s:ctermformat   : "NONE")
 endfunction
 
 " Palettes
@@ -120,6 +121,9 @@ call s:h("LineNr",        { "fg": s:grey,       "bg": s:lightblack })
 call s:h("CursorLineNr",  { "fg": s:orange,     "bg": s:lightblack })
 call s:h("SignColumn",    {                     "bg": s:lightblack })
 
+" Conceal
+call s:h("Conceal",       { "fg": s:purple,       "bg": s:lightblack2 })
+
 " misc
 call s:h("SpecialKey",    { "fg": s:pink })
 call s:h("Title",         { "fg": s:yellow })
@@ -156,10 +160,10 @@ call s:h("Type",          { "fg": s:aqua })
 call s:h("Structure",     { "fg": s:aqua })
 call s:h("StorageClass",  { "fg": s:aqua })
 call s:h("Typedef",       { "fg": s:aqua })
-    
+
 call s:h("Identifier",    { "fg": s:green })
 call s:h("Function",      { "fg": s:green })
-                         
+
 call s:h("Statement",     { "fg": s:pink })
 call s:h("Operator",      { "fg": s:pink })
 call s:h("Label",         { "fg": s:pink })
@@ -173,7 +177,7 @@ call s:h("Include",       { "fg": s:pink })
 call s:h("Define",        { "fg": s:pink })
 call s:h("Macro",         { "fg": s:green })
 call s:h("PreCondit",     { "fg": s:green })
-                           
+
 call s:h("Special",       { "fg": s:purple })
 call s:h("SpecialChar",   { "fg": s:pink })
 call s:h("Delimiter",     { "fg": s:pink })
@@ -185,7 +189,7 @@ call s:h("Todo",          { "fg": s:orange,   "format": "bold" })
 " call s:h("Todo",          { "fg": s:orange,   "format": "bold,italic" })
 call s:h("Comment",       { "fg": s:warmgrey})
 " call s:h("Comment",       { "fg": s:warmgrey, "format": "italic" })
-                         
+
 call s:h("Underlined",    { "fg": s:green })
 call s:h("Ignore",        {})
 call s:h("Error",         { "fg": s:red, "bg": s:darkred })
@@ -234,7 +238,7 @@ call s:h("jsFuncArgRest",       { "fg": s:purple, "format": "italic" })
 call s:h("jsFuncArgs",          { "fg": s:orange, "format": "italic" })
 call s:h("jsStorageClass",      { "fg": s:aqua })
 call s:h("jsDocTags",           { "fg": s:aqua,   "format": "italic" })
-                                 
+
 " Html
 call s:h("htmlTag",             { "fg": s:white })
 call s:h("htmlEndTag",          { "fg": s:white })
