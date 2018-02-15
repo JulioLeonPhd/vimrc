@@ -40,9 +40,9 @@ au FileType idlang setlocal commentstring=;\ %s
 imap jj <ESC>
 
 " Font Selection Override
-set gfn=Hack\ 9.5
+" set gfn=Hack\ 9.5
 " set gfn=Hack\ Bold\ 8
-" set gfn=DejaVu\ Sans\ Mono\ 10
+set gfn=DejaVu\ Sans\ Mono\ 10
 
 " Search and Replace word (Giorgio Hack)
 nnoremap <leader>s :%s/\<<C-r><C-w>\>//gc<left><left><left>
