@@ -40,9 +40,9 @@ au FileType idlang setlocal commentstring=;\ %s
 imap jj <ESC>
 
 " Font Selection Override
-" set gfn=Hack\ 9.5
+set gfn=Hack\ 9.5
 " set gfn=Hack\ Bold\ 8
-set gfn=DejaVu\ Sans\ Mono\ 10
+" set gfn=DejaVu\ Sans\ Mono\ 10
 
 " Search and Replace word (Giorgio Hack)
 nnoremap <leader>s :%s/\<<C-r><C-w>\>//gc<left><left><left>
@@ -64,5 +64,7 @@ let g:pandoc#syntax#conceal#use = 1
 let g:pandoc#spell#enabled = 1
 let g:pandoc#spell#default_langs = ["pt", "en"]
 
+" Workaround para Ubuntu 14.04 (vim 7.4.052)
+let g:go_version_warning = 0
 
 
