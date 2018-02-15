@@ -55,7 +55,10 @@ vnoremap <leader>s "hy:%s/<C-r>h//gc<left><left><left>
 let g:pandoc#syntax#conceal#use = 1
 " let g:pandoc#syntax#conceal#blacklist = ['atx', 'block']
 
-" Spellcheck hotkey: z=
+" Spellcheck hotkeys: 
+" Replace spelling error: z=  
+" prev/next spelling error: [s or ]s
+"
 " Requires pt.utf-8.spl copied to $VIMRUNTIME/spell as root.
 " Use copy_dict_ptBR.sh for this.
 let g:pandoc#spell#enabled = 1
