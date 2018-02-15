@@ -40,22 +40,26 @@ au FileType idlang setlocal commentstring=;\ %s
 imap jj <ESC>
 
 " Font Selection Override
-set gfn=Hack\ 8
+set gfn=Hack\ 9
 " set gfn=Hack\ Bold\ 8
 " set gfn=DejaVu\ Sans\ Mono\ Bold\ 9
 
-" Search and Replace word (Giorgio)
+" Search and Replace word (Giorgio Hack)
 nnoremap <leader>s :%s/\<<C-r><C-w>\>//gc<left><left><left>
 vnoremap <leader>s "hy:%s/<C-r>h//gc<left><left><left>
 
 " Column Line at 80
 " set cc=80
-let g:vim_markdown_math = 1
 
 " vim-pandoc and vim-pandoc-syntax configuration
-let g:pandoc#spell#enabled = 1
 let g:pandoc#syntax#conceal#use = 1
+" let g:pandoc#syntax#conceal#blacklist = ['atx', 'block']
+
+" Spellcheck hotkey: z=
+" Requires pt.utf-8.spl copied to $VIMRUNTIME/spell as root.
+" Use copy_dict_ptBR.sh for this.
+let g:pandoc#spell#enabled = 1
 let g:pandoc#spell#default_langs = ["pt", "en"]
-" let g:pandoc#syntax#conceal#blacklist = ['atx']
+
 
 
