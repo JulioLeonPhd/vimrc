@@ -1,10 +1,14 @@
 #!/bin/sh
 set -e
 
-# Backup old
-# Backup old .vimrc just in case.
+# Backup old .vim
 if [ -f "~/.vim" ]; then
     mv ~/.vim ~/.vim_old
+fi
+
+# Backup old .vimrc
+if [ -f "~/.vimrc" ]; then
+    mv ~/.vimrc ~/.vimrc_old
 fi
 
 cd ~/.vim_runtime
