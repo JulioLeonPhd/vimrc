@@ -7,14 +7,9 @@ let g:loaded_gitgutter = 1
 
 " Initialisation {{{
 
-" Realtime sign updates require Vim 7.3.105+.
 if v:version < 703 || (v:version == 703 && !has("patch105"))
-  let g:gitgutter_realtime = 0
-endif
-
-" Eager updates require gettabvar()/settabvar().
-if !exists("*gettabvar")
-  let g:gitgutter_eager = 0
+  call gitgutter#utility#warn('requires Vim 7.3.105')
+  finish
 endif
 
 function! s:set(var, default) abort
@@ -42,16 +37,18 @@ call s:set('g:gitgutter_override_sign_column_highlight', 1)
 call s:set('g:gitgutter_sign_added',                '+')
 call s:set('g:gitgutter_sign_modified',             '~')
 call s:set('g:gitgutter_sign_removed',              '_')
-try
+
+if gitgutter#utility#supports_overscore_sign()
   call s:set('g:gitgutter_sign_removed_first_line', '‾')
-catch /E239/
-  let g:gitgutter_sign_removed_first_line = '_^'
-endtry
+else
+  call s:set('g:gitgutter_sign_removed_first_line', '_^')
+endif
 
 call s:set('g:gitgutter_sign_modified_removed',    '~_')
 call s:set('g:gitgutter_diff_args',                  '')
 call s:set('g:gitgutter_diff_base',                  '')
 call s:set('g:gitgutter_map_keys',                    1)
+call s:set('g:gitgutter_terminal_reports_focus',      1)
 call s:set('g:gitgutter_async',                       1)
 call s:set('g:gitgutter_log',                         0)
 
@@ -60,15 +57,18 @@ if !executable(g:gitgutter_git_executable)
   call gitgutter#utility#warn('cannot find git. Please set g:gitgutter_git_executable.')
 endif
 
-call s:set('g:gitgutter_grep', 'grep')
+let default_grep = 'grep'
+call s:set('g:gitgutter_grep', default_grep)
 if !empty(g:gitgutter_grep)
-  if !executable(g:gitgutter_grep)
-    call gitgutter#utility#warn('cannot find '.g:gitgutter_grep.'. Please set g:gitgutter_grep.')
-    let g:gitgutter_grep = ''
-  else
+  if executable(split(g:gitgutter_grep)[0])
     if $GREP_OPTIONS =~# '--color=always'
       let g:gitgutter_grep .= ' --color=never'
     endif
+  else
+    if g:gitgutter_grep !=# default_grep
+      call gitgutter#utility#warn('cannot find '.g:gitgutter_grep.'. Please check g:gitgutter_grep.')
+    endif
+    let g:gitgutter_grep = ''
   endif
 endif
 
@@ -76,44 +76,51 @@ call gitgutter#highlight#define_sign_column_highlight()
 call gitgutter#highlight#define_highlights()
 call gitgutter#highlight#define_signs()
 
+" Prevent infinite loop where:
+" - executing a job in the foreground launches a new window which takes the focus;
+" - when the job finishes, focus returns to gvim;
+" - the FocusGained event triggers a new job (see below).
+if gitgutter#utility#windows() && !gitgutter#async#available()
+  set noshelltemp
+endif
+
 " }}}
 
 " Primary functions {{{
 
-command -bar GitGutterAll call gitgutter#all(1)
-command -bar GitGutter    call gitgutter#process_buffer(bufnr(''), 1)
+command! -bar GitGutterAll call gitgutter#all(1)
+command! -bar GitGutter    call gitgutter#process_buffer(bufnr(''), 1)
 
-command -bar GitGutterDisable call gitgutter#disable()
-command -bar GitGutterEnable  call gitgutter#enable()
-command -bar GitGutterToggle  call gitgutter#toggle()
+command! -bar GitGutterDisable call gitgutter#disable()
+command! -bar GitGutterEnable  call gitgutter#enable()
+command! -bar GitGutterToggle  call gitgutter#toggle()
 
 " }}}
 
 " Line highlights {{{
 
-command -bar GitGutterLineHighlightsDisable call gitgutter#highlight#line_disable()
-command -bar GitGutterLineHighlightsEnable  call gitgutter#highlight#line_enable()
-command -bar GitGutterLineHighlightsToggle  call gitgutter#highlight#line_toggle()
+command! -bar GitGutterLineHighlightsDisable call gitgutter#highlight#line_disable()
+command! -bar GitGutterLineHighlightsEnable  call gitgutter#highlight#line_enable()
+command! -bar GitGutterLineHighlightsToggle  call gitgutter#highlight#line_toggle()
 
 " }}}
 
 " Signs {{{
 
-command -bar GitGutterSignsEnable  call gitgutter#sign#enable()
-command -bar GitGutterSignsDisable call gitgutter#sign#disable()
-command -bar GitGutterSignsToggle  call gitgutter#sign#toggle()
+command! -bar GitGutterSignsEnable  call gitgutter#sign#enable()
+command! -bar GitGutterSignsDisable call gitgutter#sign#disable()
+command! -bar GitGutterSignsToggle  call gitgutter#sign#toggle()
 
 " }}}
 
 " Hunks {{{
 
-command -bar -count=1 GitGutterNextHunk call gitgutter#hunk#next_hunk(<count>)
-command -bar -count=1 GitGutterPrevHunk call gitgutter#hunk#prev_hunk(<count>)
+command! -bar -count=1 GitGutterNextHunk call gitgutter#hunk#next_hunk(<count>)
+command! -bar -count=1 GitGutterPrevHunk call gitgutter#hunk#prev_hunk(<count>)
 
-command -bar GitGutterStageHunk   call gitgutter#hunk#stage()
-command -bar GitGutterUndoHunk    call gitgutter#hunk#undo()
-command -bar GitGutterRevertHunk  echomsg 'GitGutterRevertHunk is deprecated. Use GitGutterUndoHunk'<Bar>call gitgutter#hunk#undo()
-command -bar GitGutterPreviewHunk call gitgutter#hunk#preview()
+command! -bar GitGutterStageHunk   call gitgutter#hunk#stage()
+command! -bar GitGutterUndoHunk    call gitgutter#hunk#undo()
+command! -bar GitGutterPreviewHunk call gitgutter#hunk#preview()
 
 " Hunk text object
 onoremap <silent> <Plug>GitGutterTextObjectInnerPending :<C-U>call gitgutter#hunk#text_object(1)<CR>
@@ -153,7 +160,7 @@ endfunction
 
 " }}}
 
-command -bar GitGutterDebug call gitgutter#debug#debug()
+command! -bar GitGutterDebug call gitgutter#debug#debug()
 
 " Maps {{{
 
@@ -206,15 +213,15 @@ endif
 augroup gitgutter
   autocmd!
 
-  autocmd TabEnter * call settabvar(tabpagenr(), 'gitgutter_didtabenter', 1)
+  autocmd TabEnter * let t:gitgutter_didtabenter = 1
 
   autocmd BufEnter *
-        \ if gettabvar(tabpagenr(), 'gitgutter_didtabenter') |
-        \   call settabvar(tabpagenr(), 'gitgutter_didtabenter', 0) |
-        \   call gitgutter#all(0) |
+        \ if exists('t:gitgutter_didtabenter') && t:gitgutter_didtabenter |
+        \   let t:gitgutter_didtabenter = 0 |
+        \   call gitgutter#all(!g:gitgutter_terminal_reports_focus) |
         \ else |
         \   call gitgutter#init_buffer(bufnr('')) |
-        \   call gitgutter#process_buffer(bufnr(''), 0) |
+        \   call gitgutter#process_buffer(bufnr(''), !g:gitgutter_terminal_reports_focus) |
         \ endif
 
   autocmd CursorHold,CursorHoldI            * call gitgutter#process_buffer(bufnr(''), 0)
@@ -225,9 +232,7 @@ augroup gitgutter
   "   vim -o file1 file2
   autocmd VimEnter * if winnr() != winnr('$') | call gitgutter#all(0) | endif
 
-  if !has('gui_win32')
-    autocmd FocusGained * call gitgutter#all(1)
-  endif
+  autocmd FocusGained * call gitgutter#all(1)
 
   autocmd ColorScheme * call gitgutter#highlight#define_sign_column_highlight() | call gitgutter#highlight#define_highlights()
 

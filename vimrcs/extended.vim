@@ -10,15 +10,15 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set font according to system
 if has("mac") || has("macunix")
-    set gfn=Hack:h8,Source\ Code\ Pro:h15,Menlo:h15
+    set gfn=IBM\ Plex\ Mono:h9,Hack:h9,Source\ Code\ Pro:h10,Menlo:h10
 elseif has("win16") || has("win32")
-    set gfn=Hack:h8,Source\ Code\ Pro:h12,Bitstream\ Vera\ Sans\ Mono:h11
+    set gfn=IBM\ Plex\ Mono:h14,Source\ Code\ Pro:h12,Bitstream\ Vera\ Sans\ Mono:h11
 elseif has("gui_gtk2")
-    set gfn=Hack\ 8,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
+    set gfn=IBM\ Plex\ Mono\ 9,Hack\ 10,Source\ Code\ Pro\ 10,Bitstream\ Vera\ Sans\ Mono\ 10
 elseif has("linux")
-    set gfn=Hack\ 8,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
+    set gfn=IBM\ Plex\ Mono:h9,:Hack\ 9,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
 elseif has("unix")
-    set gfn=Monospace\ 11
+    set gfn=Monospaced\ 11
 endif
 
 " Disable scrollbars (real hackers don't use scrollbars for navigation!)
@@ -176,3 +176,4 @@ endfunc
 func! CurrentFileDir(cmd)
     return a:cmd . " " . expand("%:p:h") . "/"
 endfunc
+
