@@ -43,8 +43,14 @@ imap jj <ESC>
 nnoremap <leader>s :%s/\<<C-r><C-w>\>//gc<left><left><left>
 vnoremap <leader>s "hy:%s/<C-r>h//gc<left><left><left>
 
+" Column Line at 100
+set cc=100
+
 " Ignore case when searching
 set ignorecase
+
+" LaTeX indenting
+let g:tex_flavor='latex'
 
 " vim-pandoc and vim-pandoc-syntax configuration
 let g:pandoc#syntax#conceal#use = 1
@@ -52,9 +58,10 @@ let g:pandoc#syntax#conceal#use = 1
 " Spellcheck hotkeys: 
 " Replace spelling error: z= | prev/next spelling error: [s or ]s
 let g:pandoc#spell#enabled = 1
-let g:pandoc#spell#default_langs = ["pt", "en"]
+let g:pandoc#spell#default_langs = ["pt_BR", "en"]
 
-" Workaround para Ubuntu 14.04 (vim 7.4.052)
-let g:go_version_warning = 0
+" Pandoc Workarounds
+" let g:go_version_warning = 0 " Workaround for vim < 7.4.052
+" let g:pandoc#modules#warn_disabled = 0 " Workaround for vim < 7.3
 
 
