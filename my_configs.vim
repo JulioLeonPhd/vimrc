@@ -58,7 +58,7 @@ let g:pandoc#syntax#conceal#use = 1
 " Spellcheck hotkeys: 
 " Replace spelling error: z= | prev/next spelling error: [s or ]s
 let g:pandoc#spell#enabled = 1
-let g:pandoc#spell#default_langs = ["pt_BR", "en"]
+let g:pandoc#spell#default_langs = ["pt", "en"]
 
 " Pandoc Workarounds
 " let g:go_version_warning = 0 " Workaround for vim < 7.4.052
